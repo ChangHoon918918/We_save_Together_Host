@@ -74,9 +74,11 @@ export default function SignIn() {
         </div>
 
         <div>
-          <button className="bottomButton"> SIGN IN </button>
+          <OriginalLink>
+            <button className="bottomButton3"> SIGN IN </button>
+          </OriginalLink>
           <OriginalLink to="/signup">
-            <button className="bottomButton2"> SING UP </button>
+            <button className="bottomButton4"> SIGN UP </button>
           </OriginalLink>
         </div>
       </div>
