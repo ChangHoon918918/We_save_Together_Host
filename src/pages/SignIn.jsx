@@ -14,7 +14,8 @@ export default function SignIn() {
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
-    const regex = /^[0-9]+$/;
+    const regex =
+      /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     if (regex.test(email)) {
       setEmailValid(true);
     } else {
@@ -24,7 +25,7 @@ export default function SignIn() {
 
   const handlePassWord = (e) => {
     setPw(e.target.value);
-    const regex = /^[0-9]+$/;
+    const regex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
     if (regex.test(pw)) {
       setPwValid(true);
     } else {
