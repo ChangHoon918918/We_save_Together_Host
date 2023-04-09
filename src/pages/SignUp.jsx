@@ -6,14 +6,27 @@ import "../SignUp.css";
 
 export default function SignUp() {
   //ID, EMAIL, PW, CONFRIM Check
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
   //유효성검사
+  const [isName, setIsName] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const [pwValid, setPwValid] = useState(false);
   const [isPasswordConfirm, setIsPasswordConfirm] = useState(false);
+
+  const handleName = (e) => {
+    setName(e.target.value);
+    const regex =
+      /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    if (regex.test(name)) {
+      setIsName(true);
+    } else {
+      setIsName(false);
+    }
+  };
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -94,7 +107,7 @@ export default function SignUp() {
         </div>
 
         <div className="errorMessageWrap">
-          {!isPasswordConfirm && <div> </div>}
+          {!isPasswordConfirm && <div> 일치하지 않습니다. </div>}
         </div>
 
         <div className="inputWrap">
@@ -102,23 +115,23 @@ export default function SignUp() {
           <input
             className="input"
             type="text"
-            value={email}
-            onChange={(e) => handleEmail(e)}
+            value={name}
+            onChange={(e) => handleName(e)}
           />
         </div>
 
         <div className="errorMessageWrap">
-          {!emailValid && email.length > 0 && (
+          {!isName && name.length > 0 && (
             <div>올바른 이메일을 입력해주세요.</div>
           )}
         </div>
 
         <div>
           <OriginalLink to="/signin">
-            <button className="bottomButton"> BACK </button>
+            <button className="bottomButton3"> BACK </button>
           </OriginalLink>
           <OriginalLink to="/nextsignup">
-            <button className="bottomButton2"> NEXT </button>
+            <button className="bottomButton4"> NEXT </button>
           </OriginalLink>
         </div>
       </div>
