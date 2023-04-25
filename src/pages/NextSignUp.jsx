@@ -30,8 +30,7 @@ export default function NextSignUp() {
   const handlePhone = (e) => {
     setphone(e.target.value);
 
-    const regex =
-      /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    const regex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
     if (regex.test(phone)) {
       setPhoneValid(true);
     } else {
@@ -88,6 +87,12 @@ export default function NextSignUp() {
             value={phone}
             onChange={(e) => handlePhone(e)}
           />
+        </div>
+
+        <div className="errorMessageWrap">
+          {!phoneValid && phone.length > 0 && (
+            <div>올바른 번호를 입력해주세요.</div>
+          )}
         </div>
 
         <div className="inputWrap">

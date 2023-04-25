@@ -8,18 +8,19 @@ import { Link as OriginalLink } from "react-router-dom";
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
+  const [name, setName] = useState("");
 
   const [emailValid, setEmailValid] = useState(false);
   const [pwValid, setPwValid] = useState(false);
+  const [isName, setIsName] = useState(false);
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-    const regex =
-      /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    if (regex.test(email)) {
-      setEmailValid(true);
+  const handleName = (e) => {
+    setName(e.target.value);
+    const regex = /^[a-zA-z0-9]{4,12}$/;
+    if (regex.test(name)) {
+      setIsName(true);
     } else {
-      setEmailValid(false);
+      setIsName(false);
     }
   };
 
@@ -47,14 +48,14 @@ export default function SignIn() {
           <input
             className="input"
             type="text"
-            value={email}
-            onChange={handleEmail}
+            value={name}
+            onChange={handleName}
           />
         </div>
 
         <div className="errorMessageWrap">
-          {!emailValid && email.length > 0 && (
-            <div>올바른 이메일을 입력해주세요.</div>
+          {!isName && name.length > 0 && (
+            <div>올바른 아이디를 입력해주세요.</div>
           )}
         </div>
 

@@ -19,8 +19,7 @@ export default function SignUp() {
 
   const handleName = (e) => {
     setName(e.target.value);
-    const regex =
-      /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    const regex = /^[a-zA-z0-9]{4,12}$/;
     if (regex.test(name)) {
       setIsName(true);
     } else {
@@ -31,7 +30,7 @@ export default function SignUp() {
   const handleEmail = (e) => {
     setEmail(e.target.value);
     const regex =
-      /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
     if (regex.test(email)) {
       setEmailValid(true);
     } else {
@@ -69,14 +68,14 @@ export default function SignUp() {
           <input
             className="input"
             type="text"
-            value={email}
-            onChange={(e) => handleEmail(e)}
+            value={name}
+            onChange={(e) => handleName(e)}
           />
         </div>
 
         <div className="errorMessageWrap">
-          {!emailValid && email.length > 0 && (
-            <div>올바른 이메일을 입력해주세요.</div>
+          {!isName && name.length > 0 && (
+            <div>올바른 아이디를 입력해주세요.</div>
           )}
         </div>
 
@@ -115,13 +114,13 @@ export default function SignUp() {
           <input
             className="input"
             type="text"
-            value={name}
-            onChange={(e) => handleName(e)}
+            value={email}
+            onChange={(e) => handleEmail(e)}
           />
         </div>
 
         <div className="errorMessageWrap">
-          {!isName && name.length > 0 && (
+          {!emailValid && email.length > 0 && (
             <div>올바른 이메일을 입력해주세요.</div>
           )}
         </div>
