@@ -1,4 +1,3 @@
-import logo from "../logo.svg";
 import paper from "../assets/paper.gif";
 import loading from "../assets/loading.png";
 import "../App.css";
@@ -76,7 +75,7 @@ export default function SignIn() {
         </div>
 
         <div>
-          <OriginalLink>
+          <OriginalLink to="/mainhost">
             <button className="bottomButton3"> SIGN IN </button>
           </OriginalLink>
           <OriginalLink to="/signup">

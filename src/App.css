@@ -51,7 +51,7 @@
 }
 
 .inputWrap:focus-within {
-  border: 1px solid #9e30f4;
+  border: 1px solid #1f3320;
 }
 
 .input {
@@ -70,6 +70,7 @@
   margin-right: 10px;
   font-style: bold;
   font-size: 20px;
+  color: #1f3320;
   border-right: 2px solid #7f9980;
 }
 
@@ -79,6 +80,7 @@
   margin-right: 10px;
   font-style: bold;
   font-size: 20px;
+  color: #1f3320;
   border-right: 2px solid #7f9980;
 }
 
